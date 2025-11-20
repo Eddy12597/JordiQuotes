@@ -2,7 +2,7 @@ Mr. Jordi's Famous Quotes
 Contributors: Eddy Zhang, McQueen Hong, Daniel Li, Albert Wang, Eric Zeng
 'S' stands for 'student'
 
-2022~23
+2022
 
 "Mmm hmmm"
 
@@ -1193,8 +1193,6 @@ Jul 25 - 1
 [Student shows him a website (https://jesskidding.netlify.app)]
 "... this is JUST AMAZING"
 
-2025-2026
-
 Aug 18 - 5
 
 "So, [pointing to syllabus], a week has 5 days right? Wrong! It has 7"
@@ -1408,3 +1406,14 @@ Nov 17 - 1
 
 "What? November 14? No, what am I doing? Is it the 16th? 17th?" [does 67 gesture]
 
+Nov 18 - 0
+
+"I never lie!"
+
+"How can you tell its a linear algebra textbook? It has no pictures! All the pictures are parallelograms!"
+
+Nov 19 - 0
+
+"Elliot cup? ... maybe there could be a Jordi straw to go in the Elliot cup..."
+
+"Maybe the combined uses of your ChatGPTs and AIs are taking up all the bandwidth"

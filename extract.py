@@ -156,7 +156,7 @@ def encode_quotes_to_json(file_path: str) -> None:
                 # print(q)
             f.write("\n]}")
     except FileNotFoundError:
-        print(f"Error: FIle '{file_path}' not found.")
+        print(f"Error: File '{file_path}' not found.")
     except Exception as e:
         print(f"Error loading quotes: {e}")
 
@@ -167,6 +167,6 @@ loaded_quote_list = load_quotes_from_json("./quotes.json")
 
 if len(quote_list) != len(loaded_quote_list):
     encode_quotes_to_json("./quotes.json")
-    raise RuntimeWarning("Length of quote list extracted from .txt file is not equal to length of that from json file")
+    raise RuntimeWarning(f"Length of quote list extracted from .txt file ({len(quote_list)}) is not equal to length of that from json file ({len(loaded_quote_list)})")
 else:
     encode_quotes_to_json("./quotes.json")

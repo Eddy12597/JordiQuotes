@@ -164,7 +164,9 @@ def encode_quotes_to_json(file_path: str) -> None:
 quote_list = extract()
     
 loaded_quote_list = load_quotes_from_json("./quotes.json")
-    
+
 if len(quote_list) != len(loaded_quote_list):
+    encode_quotes_to_json("./quotes.json")
     raise RuntimeWarning("Length of quote list extracted from .txt file is not equal to length of that from json file")
-encode_quotes_to_json("./quotes.json")
+else:
+    encode_quotes_to_json("./quotes.json")

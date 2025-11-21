@@ -160,12 +160,12 @@ def encode_quotes_to_json(file_path: str) -> None:
     except Exception as e:
         print(f"Error loading quotes: {e}")
 
-if __name__ == "__main__":
-    quote_list = extract()
+
+quote_list = extract()
     
-    loaded_quote_list = load_quotes_from_json("./quotes.json")
+loaded_quote_list = load_quotes_from_json("./quotes.json")
     
-    if len(quote_list) != len(loaded_quote_list):
-        raise RuntimeWarning("Length of quote list extracted from .txt file is not equal to length of that from json file")
-    else:
-        encode_quotes_to_json("./quotes.json")
+if len(quote_list) != len(loaded_quote_list):
+    raise RuntimeWarning("Length of quote list extracted from .txt file is not equal to length of that from json file")
+else:
+    encode_quotes_to_json("./quotes.json")

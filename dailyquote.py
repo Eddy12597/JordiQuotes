@@ -1,0 +1,264 @@
+import random
+import time
+import schedule
+import threading
+from datetime import datetime, date
+from typing import List
+import json
+import os
+import sys
+from plyer import notification
+
+# Import your quotes
+from extract import quote_list, _quote
+
+class PersistentQuoteManager:
+    def __init__(self, quotes: List[_quote], data_file: str = "quote_data.json"):
+        self.quotes = quotes
+        self.data_file = data_file
+        self.load_state()
+    
+    def load_state(self):
+        """Load the last shown quote and date from file"""
+        if os.path.exists(self.data_file):
+            try:
+                with open(self.data_file, 'r') as f:
+                    data = json.load(f)
+                    self.last_date = datetime.strptime(data['last_date'], '%Y-%m-%d').date()
+                    self.last_quote_index = data['last_quote_index']
+                    print(f"Loaded state: last quote shown on {self.last_date}")
+            except (json.JSONDecodeError, KeyError):
+                # File exists but corrupted, initialize fresh
+                self.initialize_state()
+        else:
+            self.initialize_state()
+    
+    def initialize_state(self):
+        """Initialize with today's date and no previous quote"""
+        self.last_date = date.today()
+        self.last_quote_index = -1
+        print("Initialized new quote state")
+    
+    def save_state(self):
+        """Save current state to file"""
+        data = {
+            'last_date': self.last_date.isoformat(),
+            'last_quote_index': self.last_quote_index
+        }
+        with open(self.data_file, 'w') as f:
+            json.dump(data, f)
+    
+    def get_daily_quote(self) -> _quote:
+        """Get today's quote (same quote all day)"""
+        today = date.today()
+        
+        # If we already showed a quote today, return the same one
+        if today == self.last_date and self.last_quote_index != -1:
+            return self.quotes[self.last_quote_index]
+        
+        # New day - get new random quote (consistent for the day)
+        self.last_date = today
+        random.seed(today.toordinal())  # Same seed for entire day
+        self.last_quote_index = random.randint(0, len(self.quotes) - 1)
+        self.save_state()
+        
+        new_quote = self.quotes[self.last_quote_index]
+        print(f"New daily quote selected: {new_quote.origin}")
+        return new_quote
+    
+    def get_random_quote(self) -> _quote:
+        """Get a completely random quote (for manual requests)"""
+        return random.choice(self.quotes)
+
+def show_notification(quote: _quote):
+    """Show desktop notification with the quote"""
+    try:
+        # Truncate long quotes for notification
+        message = str(quote)
+        if len(message) > 200:
+            message = message[:197] + "..."
+        
+        notification.notify(
+            title="📖 Daily Quote",
+            message=message,
+            timeout=15,  # Show for 15 seconds
+            app_name="Quote App",
+            toast=True   # Windows 10+ style notifications
+        )
+        print(f"Notification shown: {quote.origin}")
+    except Exception as e:
+        print(f"Error showing notification: {e}")
+
+def print_quote(quote: _quote):
+    """Print quote to console"""
+    print("\n" + "="*60)
+    print("DAILY QUOTE")
+    print("="*60)
+    print(quote)
+    print("="*60 + "\n")
+
+# =============================================
+# DIFFERENT SCHEDULING STRATEGIES
+# =============================================
+
+def run_simple_scheduler(manager: PersistentQuoteManager, notification_time: str = "09:00"):
+    """
+    Strategy 1: Using schedule library (recommended)
+    Most flexible and reliable
+    """
+    print(f"Starting simple scheduler - quotes will show daily at {notification_time}")
+    
+    # Show immediate quote on startup
+    quote = manager.get_daily_quote()
+    show_notification(quote)
+    print_quote(quote)
+    
+    # Schedule daily notification
+    schedule.every().day.at(notification_time).do(
+        lambda: show_notification(manager.get_daily_quote())
+    )
+    
+    try:
+        while True:
+            schedule.run_pending()
+            time.sleep(60)  # Check every minute - low CPU
+    except KeyboardInterrupt:
+        print("\nStopping quote scheduler...")
+
+def run_sleep_scheduler(manager: PersistentQuoteManager):
+    """
+    Strategy 2: Simple sleep-based scheduler
+    Low CPU but less flexible
+    """
+    print("Starting sleep-based scheduler - 24-hour intervals")
+    
+    while True:
+        try:
+            quote = manager.get_daily_quote()
+            show_notification(quote)
+            print_quote(quote)
+            
+            # Wait 24 hours
+            print("Waiting 24 hours for next quote...")
+            time.sleep(24 * 60 * 60)  # 24 hours
+            
+        except KeyboardInterrupt:
+            print("\nStopping quote scheduler...")
+            break
+        except Exception as e:
+            print(f"Error in scheduler: {e}")
+            time.sleep(300)  # Wait 5 minutes before retry
+
+def run_threaded_scheduler(manager: PersistentQuoteManager, notification_time: str = "09:00"):
+    """
+    Strategy 3: Threaded scheduler with graceful shutdown
+    """
+    class QuoteScheduler:
+        def __init__(self, manager):
+            self.manager = manager
+            self.running = False
+            self.thread = None
+        
+        def start(self):
+            self.running = True
+            self.thread = threading.Thread(target=self._run)
+            self.thread.daemon = True
+            self.thread.start()
+            print(f"Threaded scheduler started - daily at {notification_time}")
+        
+        def stop(self):
+            self.running = False
+            if self.thread:
+                self.thread.join(timeout=5)
+        
+        def _run(self):
+            # Immediate quote on startup
+            quote = self.manager.get_daily_quote()
+            show_notification(quote)
+            print_quote(quote)
+            
+            while self.running:
+                try:
+                    schedule.every().day.at(notification_time).do(
+                        lambda: show_notification(self.manager.get_daily_quote())
+                    )
+                    
+                    # Check schedule every minute
+                    for _ in range(60):  # 60 minutes
+                        if not self.running:
+                            return
+                        schedule.run_pending()
+                        time.sleep(60)
+                        
+                except Exception as e:
+                    print(f"Scheduler error: {e}")
+                    time.sleep(60)
+    
+    scheduler = QuoteScheduler(manager)
+    scheduler.start()
+    
+    try:
+        # Keep main thread alive
+        while True:
+            time.sleep(1)
+    except KeyboardInterrupt:
+        print("\nStopping threaded scheduler...")
+        scheduler.stop()
+
+# =============================================
+# MAIN APPLICATION
+# =============================================
+
+def main():
+    # Initialize quote manager
+    manager = PersistentQuoteManager(quote_list)
+    
+    print(f"Loaded {len(quote_list)} quotes")
+    print("Daily Quote Application")
+    print("=" * 40)
+    print("1. Run with schedule library (recommended)")
+    print("2. Run with simple sleep scheduler")
+    print("3. Run with threaded scheduler")
+    print("4. Show today's quote once and exit")
+    print("5. Show random quote")
+    print("6. Test notification")
+    print("=" * 40)
+    
+    try:
+        choice = input("Choose option ([1]-6): ").strip()
+            
+        if choice == "2":
+            run_sleep_scheduler(manager)
+            
+        elif choice == "3":
+            time_str = input("Enter notification time (HH:MM) [07:59]: ").strip()
+            notification_time = time_str if time_str else "07:59"
+            run_threaded_scheduler(manager, notification_time)
+            
+        elif choice == "4":
+            quote = manager.get_daily_quote()
+            print_quote(quote)
+            
+        elif choice == "5":
+            quote = manager.get_random_quote()
+            print("\nRANDOM QUOTE:")
+            print_quote(quote)
+            
+        elif choice == "6":
+            quote = manager.get_daily_quote()
+            show_notification(quote)
+            print_quote(quote)
+            print("Notification test completed")
+            
+        else:
+            time_str = input("Enter notification time (HH:MM) [07:59]: ").strip()
+            notification_time = time_str if time_str else "07:59"
+            run_simple_scheduler(manager, notification_time)
+            
+    except KeyboardInterrupt:
+        print("\nApplication interrupted by user")
+    except Exception as e:
+        print(f"Application error: {e}")
+
+if __name__ == "__main__":
+    main()

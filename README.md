@@ -26,6 +26,16 @@ Jordi A. Navarrette
 >>> 
 ```
 
+## Daily Quote Toast
+
+```bash
+python dailyquote.py
+```
+
+For windows, turn on notifications: `Win + I` -> `System` -> `Notifications` -> `Set Notification Priority` -> `Applications` -> `Add Application` -> `Python`
+
+![1763899727879](image/README/1763899727879.png)
+
 ## Future Roadmap
 
 - JESS extraction and analysis

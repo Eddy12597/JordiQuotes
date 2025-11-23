@@ -39,13 +39,31 @@ class _quote:
     def __init__(self, content: str, date: tuple[int, int | None, int | None] | tuple[int] | None = None, origin: str = _origin):
         global _id
         self.content = content
-        self.date: tuple[int, int | None, int | None] = date if date is not None and len(date) == 3 else (0, None, None)
+        self.date: tuple[int | None, int | None, int | None] = date if date is not None and len(date) == 3 else (0, None, None)
         self.origin = origin
         self.id = _id
         _id += 1
 
     def __str__(self) -> str:
-        datestr = f"{_months[self.date[1] - 1] if len(self.date) > 1 and self.date[1] is not None else "n.d."}{f", {self.date[2]}, " if len(self.date) > 2 and self.date[2] is not None else ''}{self.date[0] if self.date[0] != 0 else ""}"
+        datestr = ""
+        year = self.date[0]
+        month = self.date[1]
+        day = self.date[2]
+        if year is None and month is None and day is None:
+            datestr = 'n.d.'
+        elif year is not None and month is None and day is None:
+            datestr = str(year)
+        elif month is not None and day is None:
+            datestr = f"{_numbers_to_months[month]}, {year}"
+        elif day is not None:
+            if month is None:
+                month = ""
+            else:
+                month = _numbers_to_months[month]
+            datestr = f"{month} {day}, {year}"
+        else:
+            print(f"Error encountered in date: {self.date}")
+            datestr = "n.d."
         return f'{self.content} -- {self.origin}, {datestr}'
 
     def encode(self) -> str:
@@ -92,13 +110,16 @@ def extract(filename: str = "./Jordi's Famous Quotes.txt") -> list[_quote]:
     for q in quotes.split("\n\n"):
         if q.startswith("20"):
             year = int(q)
-            month = "Jan"
+            month = "Jan" if month is not None else None
             day = 1
         if any(q.startswith(k) for k in _months):
             month = q[0:3]
             day = int(q[4:6])
         if any(q.startswith(k) for k in ("S: ", '"', "[")):
-            quotelist.append(_quote(q, (year, _months_to_numbers[month], day))) # type: ignore
+            quotelist.append(_quote(q, (year, _months_to_numbers.get(month, None), day))) # type: ignore
+            
+            # testing __str__
+            str(quotelist[-1])
         # print(f"Year: {year}, Month: {month}, Day: {day}")
     return quotelist
     

@@ -179,8 +179,8 @@ Dec 3
 "Most truths must be unknowable"
 
 "There are uncountably many problems, and uncountably many solutions - but our language is generated from finite rules, from countably many symbols."
-	- Details:
-	- "We can only express countably many solutions. For example, by the 	IVT, if a function is continuous over an interval [a, b], then it must have 	a solution to f(x)=y for every y between f(a) and f(b): but of course, 	there are a continuum of points (i.e. uncountably many) within each 	interval, so within the intervals there are uncountably many problems, 	and uncountably many solutions - but our language is generated from 	finite rules from countably many symbols."
+
+"We can only express countably many solutions. For example, by the IVT, if a function is continuous over an interval [a, b], then it must have a solution to f(x)=y for every y between f(a) and f(b): but of course, 	there are a continuum of points (i.e. uncountably many) within each interval, so within the intervals there are uncountably many problems, 	and uncountably many solutions - but our language is generated from finite rules from countably many symbols."
 
 "Who's poster's still left?"
 [pause for a few seconds]

@@ -15,15 +15,14 @@ You can also use it in other python files:
 
 ```python
 >>> from extract import *
->>> print(quote_list[67])
-"You can't defeat the Harkenans if you can't do your calculus homework!" -- Jordi A. Navarrette, Nov 27, 2024
->>> print(quote_list[67].date)
-(2024, 11, 27)
->>> print(quote_list[67].content)
-"You can't defeat the Harkenans if you can't do your calculus homework!"
->>> print(quote_list[67].origin) 
+>>> print(quote_list[6*70 + 67 + 6 + 7])             
+"What? November 14? No, what am I doing? Is it the 16th? 17th?" [does 67 gesture] -- Jordi A. Navarrette, Nov 17, 2025
+>>> print(quote_list[6*70 + 67 + 6 + 7].content)
+"What? November 14? No, what am I doing? Is it the 16th? 17th?" [does 67 gesture]
+>>> print(quote_list[6*70 + 67 + 6 + 7].date)   
+(2025, 11, 17)
+>>> print(quote_list[6*70 + 67 + 6 + 7].origin) 
 Jordi A. Navarrette
->>> 
 ```
 
 ## Daily Quote Toast

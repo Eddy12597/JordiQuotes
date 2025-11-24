@@ -33,7 +33,7 @@ python dailyquote.py
 
 For windows, turn on notifications: `Win + I` -> `System` -> `Notifications` -> `Set Notification Priority` -> `Applications` -> `Add Application` -> `Python`
 
-![1763899727879](image/README/1763899727879.png)
+![1763988864630](image/README/1763988864630.png)
 
 ## Future Roadmap
 

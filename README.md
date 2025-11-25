@@ -37,6 +37,8 @@ For windows, turn on notifications: `Win + I` -> `System` -> `Notifications` -> 
 
 ## Future Roadmap
 
+- Fix notification issue in Mac
+- Auto-update feature
 - JESS extraction and analysis
 - expand to other languages
 - maybe publish package

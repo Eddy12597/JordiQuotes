@@ -27,13 +27,29 @@ Jordi A. Navarrette
 
 ## Daily Quote Toast
 
+Run this:
+
 ```bash
 python dailyquote.py
 ```
 
-For windows, turn on notifications: `Win + I` -> `System` -> `Notifications` -> `Set Notification Priority` -> `Applications` -> `Add Application` -> `Python`
+### Windows
+
+Turn on notifications: `Win + I` -> `System` -> `Notifications` -> `Set Notification Priority` -> `Applications` -> `Add Application` -> `Python`
 
 ![1763988864630](image/README/1763988864630.png)
+
+### MacOS
+
+Best experience: install terminal-notifier:
+
+```bash
+brew install terminal-notifier
+```
+
+Turn on notifications: `System Settings` -> `Notifications` -> find `Python` or `Terminal` -> enable notifications -> banners / alerts
+
+`System Settings` -> `General` -> `Login Items`
 
 ## Future Roadmap
 

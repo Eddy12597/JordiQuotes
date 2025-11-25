@@ -7,6 +7,9 @@ from typing import List
 import json
 import os
 import sys
+import platform
+import subprocess
+import shutil
 from plyer import notification
 
 # Import your quotes
@@ -70,10 +73,49 @@ class PersistentQuoteManager:
         """Get a completely random quote (for manual requests)"""
         return random.choice(self.quotes)
 
-def show_notification(quote: _quote):
-    """Show desktop notification with the quote"""
+def show_macos_notification(quote: _quote):
+    """Show macOS notification using terminal-notifier or AppleScript fallback"""
+    message = str(quote)
+    if len(message) > 200:
+        message = message[:197] + "..."
+    
+    # Escape quotes for shell commands
+    escaped_message = message.replace('"', '\\"').replace('`', '\\`')
+    escaped_origin = quote.origin.replace('"', '\\"').replace('`', '\\`')
+    
+    # Try terminal-notifier first (most reliable)
+    if shutil.which('terminal-notifier'):
+        try:
+            subprocess.run([
+                'terminal-notifier',
+                '-title', '📖 Daily Quote',
+                '-subtitle', escaped_origin,
+                '-message', escaped_message,
+                '-sound', 'default',
+                '-timeout', '15'
+            ], check=True, capture_output=True)
+            print(f"Notification shown via terminal-notifier: {quote.origin}")
+            return
+        except subprocess.CalledProcessError as e:
+            print(f"terminal-notifier failed: {e}")
+    
+    # Fallback to AppleScript
     try:
-        # Truncate long quotes for notification
+        applescript = f'''
+        display notification "{escaped_message}" with title "📖 Daily Quote" subtitle "{escaped_origin}" sound name "default"
+        '''
+        subprocess.run(['osascript', '-e', applescript], check=True, capture_output=True)
+        print(f"Notification shown via AppleScript: {quote.origin}")
+    except subprocess.CalledProcessError as e:
+        print(f"AppleScript notification failed: {e}")
+        # Ultimate fallback - just print
+        print("🔔 Daily Quote Notification (Fallback):")
+        print(f"📖 {message}")
+        print(f"📍 {quote.origin}")
+
+def show_windows_notification(quote: _quote):
+    """Show Windows notification using plyer"""
+    try:
         message = str(quote)
         if len(message) > 200:
             message = message[:197] + "..."
@@ -81,13 +123,53 @@ def show_notification(quote: _quote):
         notification.notify(
             title="📖 Daily Quote",
             message=message,
-            timeout=15,  # Show for 15 seconds
+            timeout=15,
             app_name="Quote App",
-            toast=True   # Windows 10+ style notifications
+            toast=True
         )
         print(f"Notification shown: {quote.origin}")
     except Exception as e:
-        print(f"Error showing notification: {e}")
+        print(f"Error showing Windows notification: {e}")
+
+def show_linux_notification(quote: _quote):
+    """Show Linux notification using plyer or notify-send"""
+    message = str(quote)
+    if len(message) > 200:
+        message = message[:197] + "..."
+    
+    try:
+        notification.notify(
+            title="📖 Daily Quote",
+            message=message,
+            timeout=15,
+            app_name="Quote App"
+        )
+        print(f"Notification shown via plyer: {quote.origin}")
+    except Exception:
+        # Fallback to notify-send
+        try:
+            subprocess.run([
+                'notify-send',
+                '📖 Daily Quote',
+                f'{message}\n\n— {quote.origin}',
+                '-t', '15000',  # 15 seconds
+                '-i', 'dialog-information'
+            ], check=True)
+            print(f"Notification shown via notify-send: {quote.origin}")
+        except (subprocess.CalledProcessError, FileNotFoundError) as e:
+            print(f"Linux notification failed: {e}")
+            print("🔔 Daily Quote (Fallback):", message)
+
+def show_notification(quote: _quote):
+    """Show desktop notification with platform-specific handling"""
+    system = platform.system()
+    
+    if system == "Darwin":  # macOS
+        show_macos_notification(quote)
+    elif system == "Windows":
+        show_windows_notification(quote)
+    else:  # Linux and other Unix-like systems
+        show_linux_notification(quote)
 
 def print_quote(quote: _quote):
     """Print quote to console"""
@@ -214,8 +296,18 @@ def main():
     manager = PersistentQuoteManager(quote_list)
     
     print(f"Loaded {len(quote_list)} quotes")
+    print(f"Platform: {platform.system()}")
     print("Daily Quote Application")
     print("=" * 40)
+    
+    # Platform-specific notification info
+    if platform.system() == "Darwin":
+        print("💡 macOS: Using terminal-notifier with AppleScript fallback")
+        if not shutil.which('terminal-notifier'):
+            print("💡 Install terminal-notifier for better notifications:")
+            print("   brew install terminal-notifier")
+    print("=" * 40)
+    
     print("1. Run with schedule library (recommended)")
     print("2. Run with simple sleep scheduler")
     print("3. Run with threaded scheduler")

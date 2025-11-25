@@ -510,6 +510,7 @@
 	{"content": "\"What symbol did he use in the lecture for the eigenbasis? Is it V?\"\nS: \"U?\"\n\"What, Me?\"", "date": [2025, 11, 24], "origin": "Jordi A. Navarrette", "id": 508},
 	{"content": "\"You're exemplary. And why are you exemplary? You're a reflection of me!\"", "date": [2025, 11, 24], "origin": "Jordi A. Navarrette", "id": 509},
 	{"content": "\"We're gonna finish in feb 6th or 7th? Oh actually jan 16th, 17!\"", "date": [2025, 11, 24], "origin": "Jordi A. Navarrette", "id": 510},
-	{"content": "\"I'm taking attendance, 6, 7\"", "date": [2025, 11, 24], "origin": "Jordi A. Navarrette", "id": 511}
+	{"content": "\"I'm taking attendance, 6, 7\"", "date": [2025, 11, 24], "origin": "Jordi A. Navarrette", "id": 511},
+	{"content": "\"You can just take AA transpose instead of A transpose A! That saves more than half of the work!\"\nS: \"but thats still long...\n\"You know what else is long? Life.\"", "date": [2025, 11, 25], "origin": "Jordi A. Navarrette", "id": 512}
 
 ]}

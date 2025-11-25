@@ -1441,3 +1441,5 @@ Nov 25 - 0
 "You can just take AA transpose instead of A transpose A! That saves more than half of the work!"
 S: "but thats still long...
 "You know what else is long? Life."
+
+"pseudoinverse, so interesting! or perhaps pseudointeresting."

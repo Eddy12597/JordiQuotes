@@ -173,7 +173,10 @@ def encode_quotes_to_json(file_path: str) -> None:
         with open(file_path, 'w', encoding='utf-8') as f:
             f.write('{"quotes": [\n')
             for i, q in enumerate(quote_list):
-                f.write("\t" + q.encode() + f"{"," if i != len(quote_list) - 1 else ''}\n")
+                tmp = ""
+                if i != len(quote_list) - 1:
+                    tmp = ","
+                f.write("\t" + q.encode() + tmp + "\n")
                 # print(q)
             f.write("\n]}")
     except FileNotFoundError:

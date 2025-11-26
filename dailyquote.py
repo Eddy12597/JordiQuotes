@@ -12,8 +12,7 @@ import subprocess
 import shutil
 from plyer import notification
 
-# Import your quotes
-from extract import quote_list, _quote
+from quote import quote_list, _quote
 
 class PersistentQuoteManager:
     def __init__(self, quotes: List[_quote], data_file: str = "quote_data.json"):

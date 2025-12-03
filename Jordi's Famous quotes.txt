@@ -1447,6 +1447,8 @@ S: "but thats still long...
 S: "What if we all lived in someone's dream?"
 "Wow, so philosophical! How about God's dream? If this is God's dream, then stats is the nightmare"
 
+"I love anime too! My favorite anime is Genshin Impact!"
+
 Nov 26 - 1
 
 "If you want to find an advisor for your senior project, like actually get some work done, not some BS subject like Psychology, sure!"
@@ -1454,3 +1456,10 @@ Nov 26 - 1
 "Physics has a heavy emphasis for experimental models without concrete data. But the thing is, math is used to explain physics, so I should get into the fundamental skill / subject to answer more deep and pressing questions, like about computability."
 
 "I was good at physics back in undergrad. But math is more fundamental."
+
+Dec 3 - 1
+
+S: "hey Mr. Jordi!"
+"Hi?"
+"huh? Jess?"
+"huh?"

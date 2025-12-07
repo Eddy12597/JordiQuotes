@@ -52,6 +52,37 @@ class PersistentQuoteManager:
     
     def get_daily_quote(self) -> _quote:
         """Get today's quote (same quote all day)"""
+        print("Downloading Updates...")
+        try:
+            result = subprocess.run(
+                ["git", "pull"],
+                capture_output=True,
+                text=True)
+            if result.stderr:
+                print(f"An error occurred during 'git pull': {result.stderr}")
+                if platform.system() == "Darwin":
+                    resp = input("Run 'brew install git'? [Y/n]")
+                    if resp.lower().strip() in ("n", "no"):
+                        print("Will not install.")
+                    else:
+                        print("Installing: 'brew install git'")
+                        gitinstallresult = subprocess.run(["brew", "install", "git"], text=True, capture_output=True)
+                        if gitinstallresult.stderr:
+                            print(f"An Error occurred during 'brew install git': {result.stderr}")
+                        else:
+                            print(f"Successfully installed git. Downloading updates...")
+                            gitpullafterinstresult = subprocess.run(["cd .. && git clone https://github.com/Eddy12597/JordiQuotes.git && cd JordiQuotes"], shell=True, capture_output=True, text=True)
+                            if gitpullafterinstresult.stderr:
+                                print(f"An error occurred during 'git clone ...' after git is installed: {gitpullafterinstresult.stderr}")
+                            else:
+                                print(f"Successfully updated")
+            else:
+                print("Update complete!")
+            
+        except Exception as e:
+            print("An error occurred during update:", str(e))
+            
+
         today = date.today()
         
         # If we already showed a quote today, return the same one

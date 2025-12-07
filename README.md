@@ -54,7 +54,7 @@ Turn on notifications: `System Settings` -> `Notifications` -> find `Python` or 
 ## Future Roadmap
 
 - Fix notification issue in Mac
-- Auto-update feature
+- Auto-update feature (doing - need to finish off Windows case)
 - JESS extraction and analysis
 - expand to other languages
 - maybe publish package

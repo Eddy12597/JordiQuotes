@@ -1476,3 +1476,7 @@ S: "This is so hard!"
 "Bro, work on your arithmetics! I don't have anything else to tell you!"
 
 "When you become an esteemed professor, you can skip so many steps, and they will call you brilliant. But you're not at that stage yet, so do some work"
+
+Dec 8 - 1
+
+"And this gets to profit maximization problems! You know you can define a profit function with labor and capital. What else can it have? Tariffs?"

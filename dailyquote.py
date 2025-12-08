@@ -59,6 +59,14 @@ class PersistentQuoteManager:
                 capture_output=True,
                 text=True)
             if result.stderr:
+                resp = input("Clone from repository? [Y/n]")
+                if resp.lower().strip() in ("n", "no"):
+                    print("Will not clone.")
+                else:
+                    result = subprocess.run(["git", "clone", "https://github.com/Eddy12597/JordiQuotes.git"],
+                                        capture_output=True,
+                                        text=True)
+            if result.stderr:
                 print(f"An error occurred during 'git pull': {result.stderr}")
                 if platform.system() == "Darwin":
                     resp = input("Run 'brew install git'? [Y/n]")
@@ -76,6 +84,31 @@ class PersistentQuoteManager:
                                 print(f"An error occurred during 'git clone ...' after git is installed: {gitpullafterinstresult.stderr}")
                             else:
                                 print(f"Successfully updated")
+                elif platform.system() == "Windows":
+                    resp = input("Install git via cURL? [Y/n]")
+                    if resp.lower().strip() in ("n", "no"):
+                        print("Will not install.")
+                    else:
+                        print("running command:")
+                        print('curl -L -o git-installer.exe https://github.com/git-for-windows/git/releases/download/v2.52.0.windows.1/Git-2.52.0-64-bit.exe; Start-Process git-installer.exe -ArgumentList "/VERYSILENT", "/NORESTART", "/NOCANCEL", "/SP-", "/CLOSEAPPLICATIONS", "/RESTARTAPPLICATIONS", "/COMPONENTS=icons,ext\\reg\\shellhere,assoc,assoc_sh" -Wait')
+                        wininstres = subprocess.run('curl -L -o git-installer.exe https://github.com/git-for-windows/git/releases/download/v2.52.0.windows.1/Git-2.52.0-64-bit.exe && Start-Process git-installer.exe -ArgumentList "/VERYSILENT", "/NORESTART", "/NOCANCEL", "/SP-", "/CLOSEAPPLICATIONS", "/RESTARTAPPLICATIONS", "/COMPONENTS=icons,ext\\reg\\shellhere,assoc,assoc_sh" -Wait')
+                        if wininstres.stderr:
+                            print(f"An error occurred: {wininstres.stderr}")
+                        else:
+                            print(f"Git installed. Cloning repository...")
+                            clretr = subprocess.run(["git", "clone", "https://github.com/Eddy12597/JordiQuotes"])
+                            if clretr.stderr:
+                                print(f"An error occurred in cloning after git is installed: {clretr.stderr}")
+                            else:
+                                print(f"Update complete!")
+                elif platform.system() == "Linux":
+                    import distro
+                    if distro.name() == "Arch Linux":
+                        print("Distro: Arch Linux. I also use arch btw.")
+                        archgitres = subprocess.run(["sudo", "pacman", "-S", "git"])
+                        if archgitres.stderr:
+                            print(f"An error occurred: {archgitres.stderr}")
+                            
             else:
                 print("Update complete!")
             

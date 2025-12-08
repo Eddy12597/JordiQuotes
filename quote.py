@@ -188,4 +188,6 @@ def encode_quotes_to_json(file_path: str) -> None:
 quote_list = extract()
     
 loaded_quote_list = load_quotes_from_json("./quotes.json")
+if loaded_quote_list == []:
+    print("JSON file will likely be loaded next time.")
 encode_quotes_to_json("./quotes.json")

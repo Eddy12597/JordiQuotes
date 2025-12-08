@@ -1480,3 +1480,7 @@ S: "This is so hard!"
 Dec 8 - 1
 
 "And this gets to profit maximization problems! You know you can define a profit function with labor and capital. What else can it have? Tariffs?"
+
+"How do you calculate this determinant? Cofactor expansion? You guys are killing yourselves. You've got worms in your brain after thanksgiving?"
+
+"You gotta try everything! Try everything!~" [Sings in Zootopia 1 theme song]

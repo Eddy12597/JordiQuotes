@@ -43,7 +43,7 @@ S: "Maybe they're searching for answers"
 "In my world, I would have a button on every calculator such that if you press the button, the calculator would explode."
  
 "Do I box the answer?" (shows boxing posture)
- 
+
 "Mr. Jordi, is the exam fair?"
 "The most fair of all of them."
 
@@ -1484,3 +1484,8 @@ Dec 8 - 1
 "How do you calculate this determinant? Cofactor expansion? You guys are killing yourselves. You've got worms in your brain after thanksgiving?"
 
 "You gotta try everything! Try everything!~" [Sings in Zootopia 1 theme song]
+
+S: "If the number 7 is ill, what does it become?"
+"... is that related to 67?"
+S: "it becomes 'sick seven'!"
+"Auhhhh" [gets a drop of hand sanitizer and sanitizes ear]

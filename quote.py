@@ -45,25 +45,30 @@ class _quote:
         _id += 1
 
     def __str__(self) -> str:
-        datestr = ""
         year = self.date[0]
         month = self.date[1]
         day = self.date[2]
+        
+        # Handle None values
         if year is None and month is None and day is None:
             datestr = 'n.d.'
         elif year is not None and month is None and day is None:
+            # Only year is specified
             datestr = str(year)
-        elif month is not None and day is None:
+        elif year is not None and month is not None and day is None:
+            # Year and month are specified
             datestr = f"{_numbers_to_months[month]}, {year}"
-        elif day is not None:
-            if month is None:
-                month = ""
-            else:
-                month = _numbers_to_months[month]
-            datestr = f"{month} {day}, {year}"
+        elif year is not None and month is not None and day is not None:
+            # Full date is specified
+            month_name = _numbers_to_months[month]
+            datestr = f"{month_name} {day}, {year}"
+        elif year is not None and month is None and day is not None:
+            # Year and day are specified (unusual case)
+            datestr = f"{year}"
         else:
-            print(f"Error encountered in date: {self.date}")
+            # Fallback for any other combination
             datestr = "n.d."
+            
         return f'{self.content} -- {self.origin}, {datestr}'
 
     def encode(self) -> str:
@@ -98,14 +103,18 @@ class _quote:
         
         return quote
 
-def extract(filename: str = "./Jordi's Famous Quotes.txt") -> list[_quote]:
-    quotes = "[Extraction Error]"
+def extract(filename: str = "./Jordi's Famous Quotes.txt", 
+            start_year=2022, start_month=None, start_day=None) -> list[_quote]:
+    quotes = f"[Extraction Error / File not loaded: {filename}]"
     with open(filename, 'r', encoding='utf-8') as f:
         quotes = f.read()
+    lines = quotes.split("\n")
+    for i in range(len(lines)):
+        lines[i] = lines[i].strip()
     quotelist: list[_quote] = []
-    year = 2022
-    month = None
-    day = None
+    year = start_year
+    month = start_month
+    day = start_day
     # print(f"Raw quotes: {quotes}")
     for q in quotes.split("\n\n"):
         if q.startswith("20"):
@@ -115,11 +124,11 @@ def extract(filename: str = "./Jordi's Famous Quotes.txt") -> list[_quote]:
         if any(q.startswith(k) for k in _months):
             month = q[0:3]
             day = int(q[4:6])
-        if any(q.startswith(k) for k in ("S: ", '"', "[")):
+        if any(q.startswith(k) for k in ("S: ", "'", '"', "[")):
             quotelist.append(_quote(q, (year, _months_to_numbers.get(month, None), day))) # type: ignore
             
-            # testing __str__
-            str(quotelist[-1])
+            # testing __str__ doesn't produce error
+            quotelist[-1].__str__()
         # print(f"Year: {year}, Month: {month}, Day: {day}")
     return quotelist
     

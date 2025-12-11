@@ -1497,3 +1497,12 @@ Dec 9 - 3
 "Jess kidding" x 2
 
 "Airpods? mememememe, I want one, oh no, those are mine!"
+
+Dec 10 - 0
+
+"You can see the mantis is using eigenvalues to calculate the paths of the moth!"
+
+S: "Is the mantis doing linear algebra?"
+"Of course, its a natural process"
+
+"That mantis is like you in Pre-Calc AB, clinging for your life!"

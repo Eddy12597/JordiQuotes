@@ -1306,8 +1306,6 @@ Sep 19 - 2
 
 Sep 22 - 1
 
-"Hao He!"
-
 Sep 23 - 2
 
 "I'm using my hotspot too. I'm in the hottest spot, the beach!"
@@ -1348,7 +1346,7 @@ Oct 20 - 2
 
 Oct 21 - 1
 
-"You remember the Pascal triangle, which was originally invented in China ... and stolen by the stupid europeans!"
+"You remember the Pascal triangle, which was originally invented in China ... and stolen by the stupid Europeans!"
 
 Oct 22 - 3
 
@@ -1356,7 +1354,7 @@ Oct 22 - 3
 
 Oct 29 - 0
 
-"For pjamas day, you have to wear your pjamas and get out of bed and go to school!"
+"Even for pjamas day, you have to wear your pjamas and get out of bed and go to school!"
 
 "Did someone say Mr. Jordi? Am I going crazy? Are we all going crazy?"
 
@@ -1372,8 +1370,7 @@ Nov 5 - 0
 S^-1AS=S^-1Sλ=λ
 or
 ASS^-1=A=SλS^-1
-
-I can see why they didn't to it in class"
+...I can see why they didn't to it in class"
 
 "I'm the next generation"
 
@@ -1388,7 +1385,7 @@ Nov 11 - 0
 
 "Your sins are with you forever"
 
-"The one here is 6? The one on the exam is 7?" [Does 67 sign]
+"The one here is 6? The one on the exam is 7?" [Does 67 gesture]
 
 Nov 13 - 0
 
@@ -1439,7 +1436,7 @@ S: "U?"
 Nov 25 - 0
 
 "You can just take AA transpose instead of A transpose A! That saves more than half of the work!"
-S: "but thats still long...
+S: "but thats still long..."
 "You know what else is long? Life."
 
 "pseudoinverse, so interesting! or perhaps pseudointeresting."
@@ -1461,7 +1458,7 @@ Dec 3 - 1
 
 S: "hey Mr. Jordi!"
 "Hi?"
-"huh? Jess?"
+S: "huh? Jess?"
 "huh?"
 
 Dec 5 - 0
@@ -1496,7 +1493,7 @@ Dec 9 - 3
 
 "Jess kidding" x 2
 
-"Airpods? mememememe, I want one, oh no, those are mine!"
+"Airpods? mememememe, I want one, oh I mean, those are mine!"
 
 Dec 10 - 0
 
@@ -1506,3 +1503,12 @@ S: "Is the mantis doing linear algebra?"
 "Of course, its a natural process"
 
 "That mantis is like you in Pre-Calc AB, clinging for your life!"
+
+Dec 12 - 2
+
+S: "Can I go to the nurse?"
+"Can she teach you math?"
+
+Dec 16 - 0
+
+"Oh God, who designed this macbook? Steve Jobs? This is so stupid because I can't put two USB together in this mac. It's like USBSB!"

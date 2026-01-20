@@ -1543,3 +1543,9 @@ Jan 20 - 1
 "We all will die one day. Who knows when health concerns will strike"
 
 "Inflated! Not unlike some brains. Terminal! Which is what you hope your course will be. But it's the beginning. The beginning of greatness."
+
+"How much will a man's hour compare to a woman's hour? Clearly our women ours are worth five men hours."
+
+"These chocolates come from Japan! Ahhhh uhhhhh! How can you accept these Thomas!"
+S: "He's from the U.S."
+"Ahhh but they bombed Pearl Harbour!"

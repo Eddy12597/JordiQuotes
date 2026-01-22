@@ -1530,8 +1530,8 @@ Jan 5 - 1
 
 Jan 12 - 1
 
-"Is today ur chinese exam?"
-S: "yes, cancel the stats test"
+"Is today ur Chinese exam?"
+S: "yes, so cancel the stats test"
 "No, cancel the Chinese test. You are Chinese!"
 
 Jan 13 - 1
@@ -1544,8 +1544,12 @@ Jan 20 - 1
 
 "Inflated! Not unlike some brains. Terminal! Which is what you hope your course will be. But it's the beginning. The beginning of greatness."
 
-"How much will a man's hour compare to a woman's hour? Clearly our women ours are worth five men hours."
+"How much will a man's hour compare to a woman's hour? Clearly our women hours are worth five men hours."
 
-"These chocolates come from Japan! Ahhhh uhhhhh! How can you accept these Thomas!"
+"These chocolates come from Japan! Ahhhh uhhhhh! How can you accept these, Thomas?"
 S: "He's from the U.S."
 "Ahhh but they bombed Pearl Harbour!"
+
+Jan 22 - 1
+
+"The first problem is, you have to write bigger. The second problem is, there's no Six Seven!"

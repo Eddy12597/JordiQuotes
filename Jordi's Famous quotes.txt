@@ -720,7 +720,7 @@ S: "Donald who? Donald Trump?"
 S: "It's 5 sqrt(2)! Minus one point!"
 "Okay, minus one, whatever"
 
-"An individual can decide whether to blah blah blah or blah blah blah. She decides ... wait, she? Oh yes, she. She decides..."
+"An individual can decide whether to ... she decides ... wait, she? Oh yes, she. She decides..."
 
 "Jack put men first! Very traditional!"
 
@@ -953,8 +953,6 @@ Mar 20 - 0 + 11
 "Why is it so annoying? It's like the Bible!"
 
 Mar 21 - 7
-
-Mar 24 - Mr. Jordi is absent
 
 Mar 25 - 7 + 3
 

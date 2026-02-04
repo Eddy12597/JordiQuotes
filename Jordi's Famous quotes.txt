@@ -1334,6 +1334,11 @@ Oct 13 - 1
 
 "I'm pretty old"
 
+Oct 14 - 0
+
+[Mr. Jordi comments on NHS hosting China Day]
+"I believe every day should be China day!"
+
 Oct 15 - 1
 
 Oct 16 - 1
@@ -1555,3 +1560,19 @@ Jan 22 - 1
 Jan 29 - 0
 
 "Imagine having a capstone that actually teaches something. Imagine that sh*t."
+
+Feb 3 - 0
+
+S: "Why didn't the bicycle go to school? Because it was two-tired"
+"Umm. So why didn't the vehicle go to school?"
+S: "why?"
+"Because it was two-tired two!"
+
+Feb 4 - 0
+
+[Mr. Jordi is lecturing on a question about child abuse and disease. A student laughs]
+"That's not cool. Why are you laughing?"
+S: "we thought you will make jokes of this prompt"
+"I'm more serious than that!"
+S: "then why are you laughing too?"
+"I'm laughing because you guys are laughing! Abuse is cool, Make Abuse Great Again!"

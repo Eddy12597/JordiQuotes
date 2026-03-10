@@ -1588,3 +1588,32 @@ Feb 6 - 1
 "Wake up, it's time to do [the work]!"
 S: "To do is to be"
 "You inspired me, I will put it on my Valentine's card!"
+
+Feb 16 - 0
+
+S: "Mr. Jordi, what is randomness?"
+"Banana"
+
+Feb 27 - 2
+
+"Life is so ... frickle, so fragile, so contingent. You can't take it for granted. Neither can you take a capstone for granted!"
+
+"Too bad! And so is life."
+
+Mar 5 - 2
+
+"We all say Linear Algebra is the backbone of AI. But there are so many apt Chess-playing AIs that dominate all but the few top chess players. Then what's the point of playing chess?"
+S: "Maybe they're just playing it"
+"Maybe we could 'play' Linear Algebra! In chess, it's a game of perfect information, like you try your best to uncover the opponent. And that's like Linear Algebra. You have to uncover things through  reasoning, logic, and maybe even experience. hmm."
+
+Mar 9 - 1
+
+"I know [a student's name] will not do a good job, so this will be the recording"
+S: "are you stereotyping against [student's name]?"
+"No, I don't stereotype against [student's name]. I know [student's name]"
+
+Mar 10 - 1
+
+"Joey, did you bring enough food for everyone? Did you even share it with your G11 cohort? And you just took down the last bite? What did your dear leader say? The camera is watching. And so is Xi, he's watching too!"
+
+"I was young too... hundreds of years ago"

@@ -1633,4 +1633,4 @@ Mar 17 - 0
 S: "That's so hard"
 "You know what's hard? Diamonds"
 
-"For example, yesterday I didn't understand ... no, I understand everything.
+"For example, yesterday I didn't understand ... no, I understand everything."

@@ -1575,7 +1575,7 @@ Feb 4 - 0
 S: "we thought you will make jokes of this prompt"
 "I'm more serious than that!"
 S: "then why are you laughing too?"
-"I'm laughing because you guys are laughing! Abuse is cool, Make Abuse Great Again!"
+"I'm laughing because you guys are laughing! ... Abuse is cool, Make Abuse Great Again!"
 
 Feb 5 - 2
 
@@ -1608,7 +1608,7 @@ S: "Maybe they're just playing it"
 
 Mar 9 - 1
 
-"I know [a student's name] will not do a good job, so this will be the recording"
+"I know [student's name] will not do a good job, so this will be the recording"
 S: "are you stereotyping against [student's name]?"
 "No, I don't stereotype against [student's name]. I know [student's name]"
 
@@ -1622,15 +1622,44 @@ Mar 11 - 0
 
 [Mr. Jordi moves his desks; a teacher from below comes up]
 E: "Take them up man!" [He leaves]
-"What do you mean take them up? I gotta do whatever I want. Nobody's commanding me. Ain't that right?"
+"What do you mean take them up? I gotta do whatever I want. Nobody's commanding me. Ain't that right?" [Imitating tone of the teacher]
 
 Mar 17 - 0
 
-"Maybe you [a Spanish speaking student] has too much talent that the Drug cartels will come and hire you"
+"Maybe you [Spanish speaking student] has too much talent that the Drug cartels will come and hire you"
 
 "There should be a drone deployed to track seniors"
 
 S: "That's so hard"
-"You know what's hard? Diamonds"
+"You know what's hard? ... Diamonds"
 
 "For example, yesterday I didn't understand ... no, I understand everything."
+
+S: "Are you in the math department?"
+"Yeah. Or you can even say, I *am* the math department"
+
+Mar 18 - 0
+
+Mar 19 - 0
+
+"I got permission to use the third period. That's Capstone biology or whatever. New audience! Including people who thought they escaped Linear Algebra!"
+
+"Don't be afraid of trying"
+
+Mar 24 - 2
+
+"Everyone should have the correct opinion"
+
+"Naughty Naughty"
+
+"Wtf? Can I say that? Wtf?"
+
+"Where is Nathan?"
+S: "is he even supposed to be here?"
+"Pshhh, he's a student of the school!"
+S: "I thought he is presenting next next next week"
+"If he's still around... he might get like a ... Kimi Moonshot HR will take him away"
+
+Mar 25 - 0
+
+"I wanna go back home... but where is home?"

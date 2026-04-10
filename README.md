@@ -2,6 +2,28 @@
 
 List of Mr. Jordi's famous quotes. Credits are listed on the top of the file `Jordi's Famous Quotes.txt`.
 
+## Usage and Citation
+
+### APA 7
+
+Parenthetical: 
+	
+	(Zhang et al., n.d.)
+
+Reference Entry:
+
+	Zhang et al. (n.d.). JordiQuotes. Retrieved [Month Day, Year], from https://github.com/Eddy12597/JordiQuotes
+
+### MLA 9
+
+Parenthetical:
+
+	(Zhang et al.)
+
+Reference Entry:
+
+	Zhang et al. "JordiQuotes: Mr. Jordi Navarrette's Famous Quotes." GitHub, https://github.com/Eddy12597/JordiQuotes. Accessed [Day Month. Year].
+
 ## Extraction
 
 `quote.py` parses `Jordi's Famous quotes.txt` into JSON format in `quotes.json`.

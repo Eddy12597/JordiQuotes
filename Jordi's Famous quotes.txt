@@ -1626,7 +1626,7 @@ E: "Take them up man!" [He leaves]
 
 Mar 17 - 0
 
-"Maybe you [Spanish speaking student] has too much talent that the Drug cartels will come and hire you"
+"Maybe you [Spanish speaking student] have too much talent that the Drug cartels will come and hire you"
 
 "There should be a drone deployed to track seniors"
 
@@ -1675,3 +1675,10 @@ Apr 9 - 1
 "No bad deeds go unpunished"
 
 Apr 10 - 3
+
+Apr 17 - 0
+
+S: "Mr. Jordi, why did you resign?"
+"Ohh Hahaha! Jokes on you! Why is that person green?"
+S: "Who? no?"
+"Then why did I resign?"

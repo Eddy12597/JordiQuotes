@@ -1,28 +1,30 @@
 # JordiQuotes
 
+![WordCloud](./word-cloud.png)
+
 List of Mr. Jordi's famous quotes. Credits are listed on the top of the file `Jordi's Famous Quotes.txt`.
 
 ## Usage and Citation
 
 ### APA 7
 
-Parenthetical: 
-	
-	(Zhang et al., n.d.)
+Parenthetical:
+
+    (Zhang et al., n.d.)
 
 Reference Entry:
 
-	Zhang et al. (n.d.). JordiQuotes. Retrieved [Month Day, Year], from https://github.com/Eddy12597/JordiQuotes
+    Zhang et al. (n.d.). JordiQuotes. Retrieved [Month Day, Year], from https://github.com/Eddy12597/JordiQuotes
 
 ### MLA 9
 
 Parenthetical:
 
-	(Zhang et al.)
+    (Zhang et al.)
 
 Reference Entry:
 
-	Zhang et al. "JordiQuotes: Mr. Jordi Navarrette's Famous Quotes." GitHub, https://github.com/Eddy12597/JordiQuotes. Accessed [Day Month. Year].
+    Zhang et al. "JordiQuotes: Mr. Jordi Navarrette's Famous Quotes." GitHub, https://github.com/Eddy12597/JordiQuotes. Accessed [Day Month. Year].
 
 ## Extraction
 
@@ -37,7 +39,7 @@ You can also use it in other python files:
 
 ```python
 >>> from quote import *
->>> print(quote_list[6*70 + 67 + 6 + 7])             
+>>> print(quote_list[6*70 + 67 + 6 + 7])           
 "What? November 14? No, what am I doing? Is it the 16th? 17th?" [does 67 gesture] -- Jordi A. Navarrette, Nov 17, 2025
 >>> print(quote_list[6*70 + 67 + 6 + 7].content)
 "What? November 14? No, what am I doing? Is it the 16th? 17th?" [does 67 gesture]
